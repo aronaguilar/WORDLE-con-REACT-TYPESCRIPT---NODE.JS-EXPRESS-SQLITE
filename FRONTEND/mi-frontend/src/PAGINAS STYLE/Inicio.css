@@ -1,0 +1,106 @@
+.cont-pag-inicio-{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+
+    position: relative; 
+    overflow-x: hidden;
+}
+
+.contenedor-login{
+    z-index: 1;
+    margin-top: 20vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 50vh;
+    width: 50vh;
+    padding: 15px;
+    border: 10px solid rgb(166, 216, 219);
+    border-radius: 20px;
+}
+
+.contenedor-login h2{
+    font-family: "montserrat";
+    font-size: 40px;
+    font-weight: 900;
+    
+    color: rgb(44, 77, 87);
+}
+
+.contenedor-login form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+    width: 100%;
+}
+
+.contenedor-login form input{
+    height: 35px;
+    width: 65%;
+    border-radius: 5px;
+    border: none;
+    border: 2px solid rgb(166, 216, 219);
+    background-color: rgba(255, 255, 255, 0.411);
+    padding-left: 10px;
+
+    transition: 0.2s;
+    
+}
+.contenedor-login form input:hover{
+    background-color: white;
+    border-color: rgb(129, 178, 180);
+}
+
+.contenedor-login form button{
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(44, 77, 87);
+    color: white;
+    font-family: "montserrat";
+    font-weight: 600;
+}
+
+.login-btn-registrar{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    width: 100%;
+    font-family: "montserrat";
+    color: black;
+}
+.login-btn-registrar p{
+    font-size: 15px;
+}
+
+.login-btn-registrar button{
+    height: 20px;
+    width: 80px;
+
+    border: none;
+    background: none;
+    color: rgb(44, 77, 87);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.error-msg{
+    font-family: "montserrat";
+    color: rgb(138, 34, 34);
+
+    text-decoration: underline;
+}

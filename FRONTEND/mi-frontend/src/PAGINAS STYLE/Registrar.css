@@ -1,0 +1,98 @@
+.cont-pag-registrar{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    color: white;
+    min-height: 100vh;
+    padding: 20px;
+
+    position: relative; 
+    overflow-x: hidden;
+}
+
+.cont-pag-registro{
+    z-index: 1;
+    margin-top: 20vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 50vh;
+    width: 50vh;
+    border: 10px solid rgb(166, 216, 219);
+    border-radius: 20px;
+}
+.cont-pag-registro h2{
+    font-family: "montserrat";
+    font-size: 40px;
+    font-weight: 900;
+    
+    color: rgb(44, 77, 87);
+}
+
+.cont-pag-registro form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+    width: 100%;
+}
+
+.cont-pag-registro form input{
+    height: 35px;
+    width: 65%;
+    border-radius: 5px;
+    border: none;
+    border: 2px solid rgb(166, 216, 219);
+    background-color: rgba(255, 255, 255, 0.411);
+    padding-left: 10px;
+
+    transition: 0.2s;
+}
+
+.cont-pag-registro form input:hover{
+    background-color: white;
+    border-color: rgb(129, 178, 180);
+}
+
+.cont-pag-registro form button{
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(44, 77, 87);
+    color: white;
+    font-family: "montserrat";
+    font-weight: 600;
+}
+
+.registrar-btn-iniciar{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+
+    width: 100%;
+    font-family: "montserrat";
+    color: black;
+}
+.registrar-btn-iniciar p{
+    font-size: 14px;
+}
+
+.registrar-btn-iniciar button{
+    height: 20px;
+    width: 110px;
+
+    border: none;
+    background: none;
+    color: rgb(44, 77, 87);
+    font-size: 15px;
+    font-weight: 600;
+}

@@ -1,0 +1,59 @@
+.estadistica{
+  font-family: "montserrat";
+  min-width: 17%;
+  border-radius: 20px;
+  padding: 20px;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid rgb(166, 216, 219);
+}
+
+.estadistica h3{
+  font-family: "montserrat";
+    font-size: 25px;
+    font-weight: 900;
+    color: rgb(44, 77, 87);
+    margin: 0px;
+    margin-bottom: 15px;
+}
+.estadistica div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  gap: 20px;
+}
+
+.estadistica div div{
+
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  border-radius: 10px;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 5px;
+
+  background-color: rgb(109, 160, 161);
+  color: rgb(255, 255, 255);
+  font-size: 17px;
+  font-weight: 700;
+
+}
+.estadistica div div div{
+  height: 30px;
+  width: 30px;
+  background-color: rgb(68, 110, 110);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0px;
+
+}

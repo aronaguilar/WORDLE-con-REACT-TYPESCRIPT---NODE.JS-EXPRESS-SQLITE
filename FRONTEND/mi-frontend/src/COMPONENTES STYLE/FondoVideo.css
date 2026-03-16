@@ -1,0 +1,10 @@
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene la proporción sin estirar */
+  z-index: 0;       /* Lo manda al fondo */
+  pointer-events: none; /* TRUCO CLAVE: permite que los clics pasen a través del video y lleguen a los botones */
+}
