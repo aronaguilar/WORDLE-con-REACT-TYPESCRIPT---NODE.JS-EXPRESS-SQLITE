@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "../PAGINAS STYLE/Jugando.css";
+import "../PAGINAS STYLE/jugando.css";
 import FondoVideo from '../COMPONENTES/FondoVideo';
 import Header from '../COMPONENTES/Header';
 import ContLetra from '../COMPONENTES/ContLetra';
