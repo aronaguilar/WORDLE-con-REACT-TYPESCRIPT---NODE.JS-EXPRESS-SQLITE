@@ -22,7 +22,7 @@ const Inicio = () => {
     setCargando(true);
 
     try {
-      const respuesta = await fetch("http://localhost:8080/wordle/login", {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/wordle/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }), // Enviamos email y password

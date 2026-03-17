@@ -11,7 +11,7 @@ const Ranking = ({ trigger, usuario }: { trigger?: number, usuario?: string }) =
         
       
         try {
-            const respuesta = await fetch(`http://localhost:8080/wordle/ranking`);
+            const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/wordle/ranking`);
             const datos = await respuesta.json();
             setRanking(datos.ranking);
     

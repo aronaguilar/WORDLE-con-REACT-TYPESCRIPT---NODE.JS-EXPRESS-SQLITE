@@ -29,7 +29,7 @@ export const Estadisticas = ({actualizador}:{actualizador?: number}) => {
       if (!usuario?.id) return;
     
       try {
-        const respuesta = await fetch(`http://localhost:8080/wordle/estadisticas/${usuario.id}`);
+        const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/wordle/estadisticas/${usuario.id}`);
         const datos = await respuesta.json();
         setEstadisticas(datos);
       } catch (error) {

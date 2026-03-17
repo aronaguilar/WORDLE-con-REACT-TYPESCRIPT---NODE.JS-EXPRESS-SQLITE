@@ -24,7 +24,7 @@ const Registrar = () => {
     setCargando(true);
 
     try {
-      const respuesta = await fetch("http://localhost:8080/wordle/registro", {
+      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/wordle/registro`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombreUsuario, email, password }), // Enviamos email y password

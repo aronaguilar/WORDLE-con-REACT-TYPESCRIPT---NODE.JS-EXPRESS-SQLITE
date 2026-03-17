@@ -56,7 +56,7 @@ const Jugando = () => {
   try {
 
     // Agregamos un parámetro único (t=...) para saltar el cache
-    const respuesta = await fetch(`http://localhost:8080/wordle/palabra?t=${Date.now()}`);
+    const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/wordle/palabra?t=${Date.now()}`);
     const datos = await respuesta.json();
 
     if (datos.palabra) {
@@ -161,7 +161,7 @@ const Jugando = () => {
   if (!usuario) return;
 
   try {
-    const respuesta = await fetch(`http://localhost:8080/wordle/finalizar`, {
+    const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/wordle/finalizar`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ 
