@@ -1,4 +1,4 @@
-import "../PAGINAS STYLE/Home.css";
+import "../PAGINAS STYLE/home.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import FondoVideo from "../COMPONENTES/FondoVideo";
