@@ -18,7 +18,7 @@ const Home = () => {
     }
 
     const cerrarSesion = () => {
-            // 1. Eliminamos el dato específico del usuario
+            // 1. Eliminamos el dato específico del usuari
             localStorage.removeItem("usuario");
 
             // 2. (Opcional) Limpiamos todo el storage por seguridad
