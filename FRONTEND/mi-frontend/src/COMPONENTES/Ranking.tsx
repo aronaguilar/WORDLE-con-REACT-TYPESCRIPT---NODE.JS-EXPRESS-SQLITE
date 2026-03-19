@@ -46,7 +46,7 @@ return (
                                 <div className='top'>{indice + 1}.</div>
                                 <div className="cont-ranking-datos">
                                     <div className="ranking-nombre">{jugador.username}</div>
-                                    <div className="ranking-puntos">{jugador.puntos} pts</div>
+                                    <div className="ranking-puntos">{jugador.puntos}</div>
                                 </div>
                             </div>
                         );

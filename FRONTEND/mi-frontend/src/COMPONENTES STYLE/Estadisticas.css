@@ -48,12 +48,69 @@
 }
 .estadistica div div div{
   height: 30px;
-  width: 30px;
+  max-width: 35px;
+  min-width: 30px;
   background-color: rgb(68, 110, 110);
   display: flex;
   align-items: center;
   justify-content: center;
 
   padding: 0px;
+}
 
+
+@media (max-width: 1270px) {
+
+    .estadistica{
+      width: 20%;
+      height: 360px;
+      padding: 10px;
+    }
+
+    .estadistica h3{
+      font-size: 18px;
+    }
+    .estadistica div div{
+      font-size: 12px;
+      height: 30px;
+    }
+
+    .estadistica div div div{
+      height: 25px;
+      
+    }
+    
+}
+
+
+@media (max-width: 1215px){
+
+    .estadistica h3{
+        font-size: 18px;
+    }
+    .estadistica div div{
+        font-size: 11px;
+        height: 30px;
+    }
+
+}
+
+@media (max-width: 1150px){
+  .computadora{
+    display: none;
+  }
+  .cont-cuadri-estadisticas-rank{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+}
+
+@media (max-width: 440px){
+  .estadistica{
+    margin-top: 50px;
+    width: 80%;
+  }
 }

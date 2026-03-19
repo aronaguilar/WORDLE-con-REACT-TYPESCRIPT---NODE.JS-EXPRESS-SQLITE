@@ -83,3 +83,54 @@
     padding: 3px;
     border-radius: 5px;
 }
+
+@media (max-width: 1270px){
+    .componente-header{
+        width: 85%;
+    }
+    .componenete-header-cont-titulo{
+    font-size: 35px;
+    }
+}
+@media (max-width: 975px){
+    .componente-header{
+    width: 80%;
+  }
+}
+
+
+@media (max-width: 960px){
+  .componenete-header-cont-titulo{
+    font-size: 30px;
+  }
+  
+}
+
+@media (max-width: 875px){
+    .componenete-header-cont-usuario{
+        display: none;
+    }
+    .componente-header-cont-imagen{
+        display: none;
+    }
+    .componente-header{
+        align-items: center;
+        justify-content: center;
+    }
+    .componenete-header-cont-titulo{
+        width: 100%;
+    }
+}
+
+@media (max-width: 440px){
+    .btn-volver{
+        display: none;
+    }
+
+    .componenete-header-cont-titulo{
+        font-size: 22px;
+    }
+}
+
+
+

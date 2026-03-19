@@ -23,6 +23,7 @@
 .lista-rankeados{
   display: flex;
   flex-direction: column;
+  width: 100%;
   gap: 5px;
 }
 .rankeados{
@@ -51,13 +52,69 @@
 }
 
 .ranking-nombre{
+    display: flex;
+    align-items: center;
     font-weight: 800;
 }
 .ranking-puntos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: 500;
-    padding-left: 20px;
+    max-width: 50px;
+    min-width: 40px;
+    background-color: rgb(93, 151, 151);
+    border-radius: 5px;
+    padding: 2px;
 }
 
 .miusuario{
   background-color: rgb(33, 120, 155);
 }
+
+@media (max-width: 1270px) {
+
+    .ranking{
+      width: 20%;
+      height: 360px;
+      padding: 10px;
+      
+    }
+
+    .ranking h5{
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .rankeados{
+      height: 25px;
+    }
+
+    .top{
+      width: 20px;
+      font-size: 15px;
+    }
+
+    .cont-ranking-datos{
+        width: 100%;
+        padding-left: 5px;
+    }
+
+    .ranking-nombre{
+        font-weight: 800;
+        font-size: 13px;
+    }
+    .ranking-puntos{
+        
+        font-weight: 500;
+        font-size: 13px;
+    }
+    
+}
+
+@media (max-width: 1150px){
+  .ranking{
+    display: none;
+  }
+}
+

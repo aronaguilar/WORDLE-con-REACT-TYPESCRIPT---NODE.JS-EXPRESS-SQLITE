@@ -1,7 +1,7 @@
 import "../COMPONENTES STYLE/Estadisticas.css"
 import { useState, useEffect } from "react";
 
-export const Estadisticas = ({actualizador}:{actualizador?: number}) => {
+export const Estadisticas = ({actualizador, clase}:{actualizador?: number, clase?: string}) => {
     
     const [usuario, setUsuario] = useState<any>(null);
     const [estadisticas, setEstadisticas] = useState<any>(null);
@@ -43,14 +43,14 @@ export const Estadisticas = ({actualizador}:{actualizador?: number}) => {
     }, [actualizador, usuario]);
 
   return (
-    <div className='estadistica'>
+    <div className={`estadistica ${clase || ''}`}>
                   <h3>TUS ESTADISTICAS</h3>
                   <div>
                       <div>Partidas jugadas  <div>{estadisticas?.partidas_jugadas}</div></div>
                       <div>Partidas ganadas  <div>{estadisticas?.partidas_ganadas}</div></div>
                       <div>Racha de ganadas  <div>{estadisticas?.racha_actual}</div></div>
                       <div>Racha de maxima  <div>{estadisticas?.max_racha}</div></div>
-                      <div>Puntos: <div>{estadisticas?.puntos}</div></div>
+                      <div>Puntos <div>{estadisticas?.puntos}</div></div>
                   </div>
                 </div>
   )

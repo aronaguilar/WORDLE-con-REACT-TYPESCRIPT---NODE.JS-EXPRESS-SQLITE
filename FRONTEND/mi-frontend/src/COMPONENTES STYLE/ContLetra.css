@@ -17,12 +17,27 @@
     border: 2px solid gainsboro;
 }
 
-@media (max-width: 430px) {
 
+@media (max-width: 1215px){
     .componente-cont-letra{
-        width: 50px;
-        height: 50px;
+        width: 52px;
+        height: 52px;
     }
+}
+
+@media (max-width: 1150px){
+    .componente-cont-letra{
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 590px){
+    .componente-cont-letra{
+        width: 46px;
+        height: 46px;
+    }
+    
 }
 
 

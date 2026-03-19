@@ -239,7 +239,7 @@ const Jugando = () => {
 
                 </div>
                 
-                {usuario && <Estadisticas actualizador={actualizarEstadisticas}/>}
+                {usuario && <Estadisticas actualizador={actualizarEstadisticas} clase='computadora'/>}
 
                 {!usuario && <div className='jugando-auxiliar'></div>}
                 
@@ -267,6 +267,8 @@ const Jugando = () => {
               ))}
 
           </div>
+
+          {usuario && <Estadisticas actualizador={actualizarEstadisticas}/>}
 
           {mensaje && juegoTerminado && 
               
