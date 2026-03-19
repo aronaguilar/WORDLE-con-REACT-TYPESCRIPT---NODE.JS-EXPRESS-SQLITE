@@ -13,11 +13,17 @@ const db = new Database(url);
 
 
 
-router.get("/test", (req, res) => {
-  console.log("¡El servidor está vivo!");
-  res.send("Servidor funcionando");
+router.get("/test", async (req, res) => {
+  try {
+    // Intentamos una consulta mínima a la DB
+    await db.sql("USE DATABASE wordle_back; SELECT 1;");
+    console.log("¡Servidor y DB están vivos!");
+    res.send("Servidor y DB funcionando");
+  } catch (error) {
+    console.error("El servidor está vivo pero la DB falló:", error);
+    res.status(500).send("Error de conexión a la DB");
+  }
 });
-
 //////////////////////////INICIO DE SECION///////////////////////////
 //////////////////////////INICIO DE SECION///////////////////////////
 
