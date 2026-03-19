@@ -58,6 +58,10 @@
   padding: 0px;
 }
 
+.celular{
+  display: none;
+}
+
 
 @media (max-width: 1270px) {
 
@@ -98,6 +102,11 @@
 @media (max-width: 1150px){
   .computadora{
     display: none;
+  }
+  .celular{
+    display: flex;
+    margin-top: 60px;
+    width: 50%;
   }
   .cont-cuadri-estadisticas-rank{
     display: flex;

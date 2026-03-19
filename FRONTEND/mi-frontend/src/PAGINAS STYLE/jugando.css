@@ -35,10 +35,15 @@
 
   height: 50px;
   width: 50px;
+  border: none;
   border-radius: 50%;
   
-
 }
+.btn-volver img{
+  height: 50px;
+  width: 50px;
+}
+
 
 header, 
 .home-seccion {
@@ -168,6 +173,11 @@ header,
 
     left: 15px;
   }
+
+  .btn-volver img{
+    height: 40px;
+    width: 40px;
+}
 }
 
 

@@ -189,7 +189,9 @@ const Jugando = () => {
         
         <FondoVideo/>
         
-        <button className='btn-volver' onClick={()=>{navigate("/")}}>volver</button>
+        <button className='btn-volver' onClick={()=>{navigate("/")}}>
+            <img src="/flecha.png" alt="" />
+        </button>
         <Header />
         <div>{usuario?.username}</div>
         <section className='home-seccion'>
@@ -268,7 +270,7 @@ const Jugando = () => {
 
           </div>
 
-          {usuario && <Estadisticas actualizador={actualizarEstadisticas}/>}
+          {usuario && <Estadisticas actualizador={actualizarEstadisticas} clase='celular'/>}
 
           {mensaje && juegoTerminado && 
               

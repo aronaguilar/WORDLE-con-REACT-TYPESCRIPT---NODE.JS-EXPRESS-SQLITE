@@ -96,3 +96,18 @@
     font-size: 15px;
     font-weight: 600;
 }
+
+
+@media (max-width: 450px){
+    .cont-pag-registro{
+        width: 40vh;
+    }
+
+    .contenedor-login h2{
+        font-size: 30px;
+    }
+
+    .cont-pag-registro form input{
+        width: 80%;
+    }
+}

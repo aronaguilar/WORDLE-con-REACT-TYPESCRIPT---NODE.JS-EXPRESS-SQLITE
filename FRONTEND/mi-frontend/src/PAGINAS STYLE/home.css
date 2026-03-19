@@ -66,3 +66,11 @@
     background-color: rgb(142, 185, 187);
     box-shadow: 1px 1px 10px 1px rgb(142, 185, 187);
 }
+
+
+
+@media (max-width: 450px){
+    .inicio{
+        width: 40vh;
+    }
+}

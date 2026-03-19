@@ -104,3 +104,18 @@
 
     text-decoration: underline;
 }
+
+
+@media (max-width: 450px){
+    .contenedor-login{
+        width: 40vh;
+    }
+
+    .contenedor-login h2{
+        font-size: 30px;
+    }
+
+    .contenedor-login form input{
+        width: 80%;
+    }
+}
