@@ -1,5 +1,5 @@
 
-import "../COMPONENTES STYLE/ContLetra.css"
+import "../components styles/ContLetra.css"
 
 interface ContLetraProps {
   letra: string;

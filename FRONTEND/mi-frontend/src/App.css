@@ -1,3 +1,7 @@
+@import "tailwindcss";
+
+/* Tus estilos viejos abajo */
+
 #root{
   height: 100%;
   width: 100%;

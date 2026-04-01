@@ -55,7 +55,7 @@ router.post("/wordle/login", async (req: Request, res: Response) => {
       // Enviamos el éxito y los datos del usuario (sin la contraseña por seguridad)
       return res.json({ 
         success: true, 
-        user: usuarioLogueado 
+        user: {id: usuarioLogueado.id, username: usuarioLogueado.username, email: usuarioLogueado.email } 
       });
     } else {
       // 6. Si no hay resultados, las credenciales no coinciden

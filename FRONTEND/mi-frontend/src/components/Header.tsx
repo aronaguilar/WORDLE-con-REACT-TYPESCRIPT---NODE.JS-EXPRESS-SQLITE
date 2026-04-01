@@ -1,31 +1,20 @@
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../COMPONENTES STYLE/Header.css"
+
+import { useSelector } from 'react-redux';
+import { type RootState } from '../store/index';
+
+import "../components styles/Header.css"
 
 const Header = () => {
-
-  const [usuario, setUsuario] = useState<any>(null);
 
   const navigate = useNavigate()
 
   const cambiarInicio = () =>{
     navigate("/inicio")
   }
-  useEffect(() => {
-  const datosGuardados = localStorage.getItem("usuario");
 
-  // Verificamos que existan datos Y que no sean el string "undefined"
-  if (datosGuardados && datosGuardados !== "undefined") {
-    try {
-      const objetoUsuario = JSON.parse(datosGuardados);
-      setUsuario(objetoUsuario);
-    } catch (error) {
-      console.error("Error al parsear el usuario:", error);
-      // Si el JSON está roto, lo mejor es limpiar para evitar más errores
-      localStorage.removeItem("usuario");
-    }
-  }
-}, []);
+  const usuario = useSelector((state: RootState) => state.game.user);
+  
 
   return (
 

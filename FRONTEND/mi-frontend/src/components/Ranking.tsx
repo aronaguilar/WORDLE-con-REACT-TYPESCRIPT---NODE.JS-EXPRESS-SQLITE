@@ -1,15 +1,17 @@
-import "../COMPONENTES STYLE/Ranking.css"
+import "../components styles/Ranking.css"
 import { useState, useEffect } from "react";
 
-const Ranking = ({ trigger, usuario }: { trigger?: number, usuario?: string }) => {
+import { useSelector } from 'react-redux';
+import { type RootState } from '../store/index';
+
+const Ranking = () => {
 
     const [ranking, setRanking] = useState([])
     
+    const usuario = useSelector((state: RootState) => state.game.user);
+    const trigger = useSelector((state: RootState) => state.game.refreshTrigger);
 
     const obtenerRanking = async () => {
-
-        
-      
         try {
             const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/wordle/ranking`);
             const datos = await respuesta.json();
@@ -27,9 +29,6 @@ const Ranking = ({ trigger, usuario }: { trigger?: number, usuario?: string }) =
 
     console.log("Estado actual de ranking:", ranking);
 
-    
-    
-
 return (
         <div className='ranking'>
             <h5>RANKING</h5>
@@ -38,7 +37,7 @@ return (
                     ranking.map((jugador: any, indice: number) => {
                         
                         // Lógica para detectar si es el usuario actual
-                        const esMiUsuario = jugador.username === usuario;
+                        const esMiUsuario = jugador.username === usuario?.username;
 
                         return (
                             /* Agregamos la clase dinámica manteniendo 'rankeados' */

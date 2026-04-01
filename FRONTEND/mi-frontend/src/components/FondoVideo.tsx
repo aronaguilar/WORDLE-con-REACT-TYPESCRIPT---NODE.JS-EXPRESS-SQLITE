@@ -1,4 +1,4 @@
-import "../COMPONENTES STYLE/FondoVideo.css"
+import "../components styles/FondoVideo.css"
 
 const FondoVideo = () => {
   return (

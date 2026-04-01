@@ -45,22 +45,8 @@
     width: 100%;
 }
 
-.contenedor-login form input{
-    height: 35px;
-    width: 65%;
-    border-radius: 5px;
-    border: none;
-    border: 2px solid rgb(166, 216, 219);
-    background-color: rgba(255, 255, 255, 0.411);
-    padding-left: 10px;
 
-    transition: 0.2s;
-    
-}
-.contenedor-login form input:hover{
-    background-color: white;
-    border-color: rgb(129, 178, 180);
-}
+
 
 .contenedor-login form button{
     height: 30px;

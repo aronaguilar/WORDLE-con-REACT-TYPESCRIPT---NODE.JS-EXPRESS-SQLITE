@@ -1,26 +1,14 @@
-import "../COMPONENTES STYLE/Estadisticas.css"
+import "../components styles/Estadisticas.css"
 import { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
+import { type RootState } from '../store/index';
 
-export const Estadisticas = ({actualizador, clase}:{actualizador?: number, clase?: string}) => {
+export const Estadisticas = ({clase}:{clase?: string}) => {
     
-    const [usuario, setUsuario] = useState<any>(null);
     const [estadisticas, setEstadisticas] = useState<any>(null);
 
-    useEffect(() => {
-      const datosGuardados = localStorage.getItem("usuario");
-    
-      // Verificamos que existan datos Y que no sean el string "undefined"
-      if (datosGuardados && datosGuardados !== "undefined") {
-        try {
-          const objetoUsuario = JSON.parse(datosGuardados);
-          setUsuario(objetoUsuario);
-        } catch (error) {
-          console.error("Error al parsear el usuario:", error);
-          // Si el JSON está roto, lo mejor es limpiar para evitar más errores
-          localStorage.removeItem("usuario");
-        }
-      }
-    }, []);
+    const usuario = useSelector((state: RootState) => state.game.user);
+    const trigger = useSelector((state: RootState) => state.game.refreshTrigger);
 
     
 
@@ -40,7 +28,9 @@ export const Estadisticas = ({actualizador, clase}:{actualizador?: number, clase
     // Las pedimos cuando el componente carga o cuando el usuario cambia
     useEffect(() => {
       obtenerEstadisticas();
-    }, [actualizador, usuario]);
+    }, [trigger, usuario]);
+
+    if (!usuario) return null;
 
   return (
     <div className={`estadistica ${clase || ''}`}>

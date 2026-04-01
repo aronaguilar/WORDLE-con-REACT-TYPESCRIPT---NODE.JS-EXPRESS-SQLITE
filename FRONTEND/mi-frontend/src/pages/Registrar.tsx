@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import "../PAGINAS STYLE/Registrar.css"
+import { useDispatch } from 'react-redux';
+import { setLogin } from '../store/gameSlice';
 
-import FondoVideo from "../COMPONENTES/FondoVideo";
+import { authService } from "../services/authService";
+
+import "../pages styles/Registrar.css"
+import {FondoVideo, Input, ButtonForm} from "../components"
+
 
 const Registrar = () => {
   const [email, setEmail] = useState<string>("");
@@ -12,6 +17,7 @@ const Registrar = () => {
   const [mensaje, setMensaje] = useState<string>("");
   const [cargando, setCargando] = useState<boolean>(false);
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const cambiarInicio = () =>{
@@ -24,15 +30,7 @@ const Registrar = () => {
     setCargando(true);
 
     try {
-      const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/wordle/registro`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombreUsuario, email, password }), // Enviamos email y password
-      });
-
-      console.log(nombreUsuario)
-      console.log(email)
-      console.log(password)
+      const respuesta = await authService.registro({nombreUsuario, email, password})
 
       const datos = await respuesta.json();
 
@@ -40,11 +38,16 @@ const Registrar = () => {
         throw new Error(datos.mensaje || "Error al conectar");
       }
 
+      dispatch(setLogin({
+        id: datos.user.id,
+        username: datos.user.username,
+        email: datos.user.email
+      }));
+
       // Guardamos en LocalStorage
       localStorage.setItem("usuario", JSON.stringify(datos.user));
-      console.log(datos.user)
       
-      console.log("¡Login exitoso!");
+      console.log("¡Registro y login exitoso!");
       navigate("/Jugando");
 
     } catch (err: any) {
@@ -64,35 +67,37 @@ const Registrar = () => {
           <div className="cont-pag-registro">
               <h2>REGISTRARSE</h2>
               <form onSubmit={manejarRegistro} className="formulario">
-                <input
+                <Input
                   type="text"
                   placeholder="Tu nombre de usuario"
                   value={nombreUsuario}
                   onChange={(e) => setNombreUsuario(e.target.value)}
                   required
                 />
-                <input
+                <Input
                   type="email"
                   placeholder="Tu Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <input
+                <Input
                   type="password"
                   placeholder="Tu Contraseña"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
-                <button type="submit" disabled={cargando}>
-                  {cargando ? "Entrando..." : "Crear cuenta"}
-                </button>
+                <ButtonForm
+                  disabled={cargando}
+                  children={cargando ? "Entrando..." : "Crear cuenta"}
+                />
+
               </form>
               {mensaje && <p className="error-msg">{mensaje}</p>}
               <div className="registrar-btn-iniciar">
                 <p>ya estas registrado? </p>
-                <button onClick={cambiarInicio}>Iniciar Seción</button>
+                <button onClick={cambiarInicio}>Iniciar Sesión</button>
               </div>
           </div>
           
