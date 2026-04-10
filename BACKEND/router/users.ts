@@ -15,13 +15,23 @@ const db = new Database(url);
 
 router.get("/test", async (req, res) => {
   try {
-    // Intentamos una consulta mínima a la DB
-    await db.sql("USE DATABASE wordle_back; SELECT 1;");
-    console.log("¡Servidor y DB están vivos!");
-    res.send("Servidor y DB funcionando");
-  } catch (error) {
-    console.error("El servidor está vivo pero la DB falló:", error);
-    res.status(500).send("Error de conexión a la DB");
+    // 1. Intentamos seleccionar la base de datos
+    await db.sql("USE DATABASE wordle_back;");
+    
+    // 2. Ejecutamos una consulta simple
+    const result = await db.sql("SELECT 1 as ping;");
+    
+    console.log("✅ Cronjob: Conexión activa con SQLite Cloud");
+    res.send("Servidor y DB funcionando correctamente");
+  } catch (error: any) {
+    // Aquí atrapamos el error que está causando el 500
+    console.error("❌ ERROR CRONJOB:", error.message);
+    
+    // Si el error es de socket o conexión, el 500 sale de acá
+    res.status(500).json({ 
+      error: "La DB no respondió", 
+      detalle: error.message 
+    });
   }
 });
 //////////////////////////INICIO DE SECION///////////////////////////
