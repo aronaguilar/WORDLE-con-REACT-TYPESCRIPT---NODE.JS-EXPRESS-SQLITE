@@ -8,30 +8,35 @@ const router = Router();
 
 const url: string = "sqlitecloud://nq6klucfdk.finer-aphid.eks.use2.1kviht.sqlite.cloud:8860?apikey=ooI68KgrL4YpHbG05goxwbtqqvYbnEj5WSPEEniUHHs";
 
-const db = new Database(url);
-
-
-
+let db = new Database(url); // Asegúrate de que sea 'let' para poder re-instanciarla
 
 router.get("/test", async (req, res) => {
   try {
-    // 1. Intentamos seleccionar la base de datos
+    // 1. Intentamos usar la base de datos
     await db.sql("USE DATABASE wordle_back;");
     
-    // 2. Ejecutamos una consulta simple
-    const result = await db.sql("SELECT 1 as ping;");
+    // 2. Hacemos una consulta real
+    await db.sql("SELECT * FROM palabras LIMIT 1;"); 
     
-    console.log("✅ Cronjob: Conexión activa con SQLite Cloud");
-    res.send("Servidor y DB funcionando correctamente");
+    console.log("✅ Cronjob: Conexión activa y base de datos despierta");
+    res.send("Todo OK");
   } catch (error: any) {
-    // Aquí atrapamos el error que está causando el 500
     console.error("❌ ERROR CRONJOB:", error.message);
-    
-    // Si el error es de socket o conexión, el 500 sale de acá
-    res.status(500).json({ 
-      error: "La DB no respondió", 
-      detalle: error.message 
-    });
+
+    // 3. RECONEXIÓN AUTOMÁTICA
+    // Si el error dice que la conexión no está establecida o terminó
+    if (error.message.includes("Connection") || error.message.includes("established") || error.code === '10010') {
+      console.log("🔄 Intentando re-instanciar el cliente de DB...");
+      try {
+        db = new Database(url); // Creamos una instancia nueva
+        await db.sql("USE DATABASE wordle_back;");
+        res.send("Conexión recuperada");
+      } catch (reError) {
+        res.status(500).send("El nodo de SQLite Cloud parece estar pausado.");
+      }
+    } else {
+      res.status(500).send("Error de DB");
+    }
   }
 });
 //////////////////////////INICIO DE SECION///////////////////////////
